@@ -24,6 +24,12 @@ public class HashMapTest {
     return map;
   }
 
+  @Test(expected = IllegalArgumentException.class)
+  public void testSetGrowthThrowsCorrectExceptionWhenGrowthFactorLessThanOne() {
+    IHashMap hashMap = create(10, 0.75f);
+    hashMap.setGrowthFactor(0.99);
+  }
+
   @Test
   public void testHashMapIntFloat() {
     IHashMap h = create(10, 0.75f);
