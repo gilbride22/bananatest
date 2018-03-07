@@ -1,8 +1,14 @@
-node {
-    stage 'Checkout'
-    checkout scm
-
-    stage 'Build'
-    sh 'echo testing'
-    sh 'mvn clean install'
+pipeline {
+    agent any
+    tools {
+        maven 'Maven 3.3.9'
+        jdk 'jdk8'
+    }
+    stages {
+        stage ('Build') {
+            steps {
+                sh 'mvn clean install'
+            }
+        }
+    }
 }
