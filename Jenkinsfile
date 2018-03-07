@@ -4,4 +4,5 @@ node {
 
     stage 'Build'
     sh 'echo testing'
+    sh 'mvn clean install'
 }
